@@ -71,8 +71,10 @@
                     <p>Setiap produk dikerjakan dengan detail dan penuh ketelitian untuk memastikan hasil yang memuaskan
                         bagi pelanggan kami.</p>
                     <div class="author">
-                        <div class="avatar"></div>
-                        <p>Rina Wijaya, Founder SouvenirStudio</p>
+                        <div class="avatar">
+                            <img src="https://tse2.mm.bing.net/th?id=OIP.MNqiZl7u5qQXf8ZHngXwdgHaE8&pid=Api&P=0&h=180" alt="Farid Hakim">
+                        </div>
+                        <p>Farid Hakim, Founder SouvenirStudio</p>
                     </div>
                 </div>
                 <div class="image-placeholder">
@@ -173,17 +175,14 @@
 
     <script>
         document.addEventListener('DOMContentLoaded', function () {
-            // Add mobile menu button to the HTML
             const navContainer = document.querySelector('.nav-container');
             const navigation = document.querySelector('.navigation');
 
-            // Create mobile menu button
             const mobileMenuBtn = document.createElement('button');
             mobileMenuBtn.className = 'mobile-menu-btn';
             mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
             navContainer.insertBefore(mobileMenuBtn, navigation);
 
-            // Toggle mobile menu
             mobileMenuBtn.addEventListener('click', function () {
                 navigation.classList.toggle('active');
                 // Change icon based on menu state
@@ -194,7 +193,6 @@
                 }
             });
 
-            // Close mobile menu when clicking outside
             document.addEventListener('click', function (event) {
                 if (!navigation.contains(event.target) && !mobileMenuBtn.contains(event.target) && navigation.classList.contains('active')) {
                     navigation.classList.remove('active');
@@ -202,7 +200,6 @@
                 }
             });
 
-            // Close mobile menu when clicking on a link
             const navLinks = document.querySelectorAll('.nav-links a');
             navLinks.forEach(link => {
                 link.addEventListener('click', function () {
@@ -213,7 +210,6 @@
                 });
             });
 
-            // Handle window resize
             window.addEventListener('resize', function () {
                 if (window.innerWidth > 768 && navigation.classList.contains('active')) {
                     navigation.classList.remove('active');
@@ -221,20 +217,15 @@
                 }
             });
 
-            // Get all navigation links and add click event listeners (from your original code)
             navLinks.forEach(link => {
                 link.addEventListener('click', function (e) {
-                    // Remove active class from all links
                     navLinks.forEach(item => item.classList.remove('active'));
 
-                    // Add active class to clicked link
                     this.classList.add('active');
 
-                    // Get the target section from href attribute
                     const targetId = this.getAttribute('href').substring(1);
                     const targetElement = document.getElementById(targetId);
 
-                    // Scroll to the section
                     if (targetElement) {
                         e.preventDefault();
                         targetElement.scrollIntoView({ behavior: 'smooth' });
@@ -242,28 +233,22 @@
                 });
             });
 
-            // Make the "Katalog Lengkap" button clickable (from your original code)
             const catalogBtn = document.querySelector('.sign-up-btn');
             catalogBtn.addEventListener('click', function () {
                 alert('Membuka katalog lengkap!');
-                // Here you would typically open a modal or navigate to the catalog page
             });
 
-            // Make CTA button clickable (from your original code)
             const ctaBtn = document.querySelector('.cta-btn');
             if (ctaBtn) {
                 ctaBtn.addEventListener('click', function () {
-                    // Scroll to products section
                     document.getElementById('produk').scrollIntoView({ behavior: 'smooth' });
                 });
             }
 
-            // Make "Learn More" button clickable (from your original code)
             const learnMoreBtn = document.querySelector('.learn-more-btn');
             if (learnMoreBtn) {
                 learnMoreBtn.addEventListener('click', function () {
                     alert('Informasi lebih lanjut tentang layanan personalisasi!');
-                    // Here you would typically open a modal or navigate to a details page
                 });
             }
         });
